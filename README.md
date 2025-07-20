@@ -1,5 +1,3 @@
-Markdown
-
 # YFinance Data Pipeline
 
 This project implements a simple, modular data pipeline to extract historical stock data using `yfinance`, transform it, and load it into a CSV file. The pipeline is designed to be easily runnable locally or within a Docker container.
