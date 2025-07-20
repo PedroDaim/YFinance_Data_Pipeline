@@ -1,6 +1,6 @@
 Markdown
 
-# Simple Financial Data Pipeline
+# YFinance Data Pipeline
 
 This project implements a simple, modular data pipeline to extract historical stock data using `yfinance`, transform it, and load it into a CSV file. The pipeline is designed to be easily runnable locally or within a Docker container.
 
@@ -31,7 +31,7 @@ This project implements a simple, modular data pipeline to extract historical st
 
 ## Project Structure
 
-Simple_Data_Pipeline/
+YFinance_Data_Pipeline/
 ├── app/
 │   └── pipeline.py       # Main Python script containing the ETL pipeline functions
 ├── Dockerfile            # Defines the Docker image for the application
@@ -53,11 +53,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YourUsername/Simple_Data_Pipeline.git](https://github.com/YourUsername/Simple_Data_Pipeline.git)
+    git clone [https://github.com/PedroDaim/YFinance_Data_Pipeline.git](https://github.com/PedroDaim/YFinance_Data_Pipeline.git)
     cd Simple_Data_Pipeline
     ```
-    *(Remember to replace `YourUsername` with your actual GitHub username and adjust the repository name if it's different)*
-
 2.  **Create a virtual environment (recommended):**
     ```bash
     python -m venv venv
@@ -76,13 +74,13 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```bash
     python app/pipeline.py
     ```
-    The output CSV file `CleanedFinancialData.csv` will be saved in a `data/` subdirectory created next to your `pipeline.py` file (`Simple_Data_Pipeline/data/`).
+    The output CSV file `CleanedFinancialData.csv` will be saved in a `data/` subdirectory created next to your `pipeline.py` file (`YFinance_Data_Pipeline/data/`).
 
 ### Docker Setup
 
 1.  **Ensure you are in the root directory of the project** (where `Dockerfile` is located):
     ```bash
-    cd Simple_Data_Pipeline
+    cd YFinance_Data_Pipeline
     ```
 
 2.  **Build the Docker image:**
