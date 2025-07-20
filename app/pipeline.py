@@ -3,7 +3,7 @@ import yfinance as yf
 import os
 
 # Define output directory relative to the script's location
-# This will create a 'data' folder next to your script if it doesn't exist
+# This will create a 'data' folder next to the script if it doesn't exist
 output_dir = "data"
 output_path = os.path.join(output_dir, "CleanedFinancialData.csv")
 # --- END CHANGE ---
@@ -55,10 +55,10 @@ def transform_data(df: pd.DataFrame) -> pd.DataFrame:
         # Join the levels of the MultiIndex columns with an underscore
         df_cleaned.columns = ['_'.join(col).strip() for col in df_cleaned.columns.values]
 
-    # Now, apply the cleaning operations (lowercase, replace spaces/dots)
+    # Apply the cleaning operations (lowercase, replace spaces/dots)
     df_cleaned.columns = [col.strip().lower().replace(" ", "_").replace(".", "") for col in df_cleaned.columns]
 
-    # You might want to drop rows with NaN values if any, though yfinance data is usually clean
+    # Drop rows with NaN values if any
     df_cleaned = df_cleaned.dropna()
     print("Data Transformation completed.")
     return df_cleaned
