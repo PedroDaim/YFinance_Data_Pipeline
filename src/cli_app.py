@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Define output directory relative to the script's location
 # This will create a 'data' folder next to the script if it doesn't exist
-output_dir = "data"
+output_dir = "../data"
 def generate_filename(ticker_symbol: str, period: str) -> str:
     """
     Generates a unique filename based on ticker, period, and timestamp.
