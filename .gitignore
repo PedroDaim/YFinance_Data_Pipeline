@@ -1,5 +1,2 @@
 /docker-compose.yml
 /test.ipynb
-*.csv
-*.ipynb_checkpoints/
-data/
