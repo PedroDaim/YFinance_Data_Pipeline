@@ -1,12 +1,25 @@
 import pandas as pd
 import yfinance as yf
 import os
+from datetime import datetime
 
 # Define output directory relative to the script's location
-# This will create a 'data' folder next to the script if it doesn't exist
+# --- START CHANGE ---
 output_dir = "data"
-output_path = os.path.join(output_dir, "CleanedFinancialData.csv")
 # --- END CHANGE ---
+# Script starts here. Functions are defined below.
+def generate_filename(ticker_symbol: str, period: str) -> str:
+    """
+    Generates a unique filename based on ticker, period, and timestamp.
+    Args:
+        ticker_symbol (str): The stock ticker symbol
+        period (str): The time period
+    Returns:
+        str: Full path to the output file
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{ticker_symbol}_{period}_{timestamp}.csv"
+    return os.path.join(output_dir, filename)
 
 def extract_data(ticker_symbol: str, period: str = '1y') -> pd.DataFrame:
     """
@@ -94,10 +107,60 @@ def run_pipeline(ticker_symbol: str, period: str = '1y'):
         period (str): The period to download data for (e.g., '1y', '5y').
     """
     print(f"Starting data pipeline for {ticker_symbol}...")
+     # Generate unique filename for this run
+    output_path = generate_filename(ticker_symbol, period)
+
+    # Extract, transform, and load data
+    print("Extracting data...")
+    
     df_raw = extract_data(ticker_symbol, period)
     df_cleaned = transform_data(df_raw)
     load_data(df_cleaned, output_path)
     print("Data pipeline completed successfully.")
+    print(f"Data saved to: {output_path}")
 
+#New function to get user input for ticker symbol and period
+def get_user_input():
+    """
+    Gets user input for ticker symbol and period with validation.
+    Returns:
+        tuple: (ticker_symbol, period)
+    """
+    # Valid periods for yfinance
+    valid_periods = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max']
+    
+    print("=== Stock Data Pipeline ===")
+    print("Welcome! Let's get some stock data.")
+    
+    # Get ticker symbol
+    while True:
+        ticker = input("\nEnter the stock ticker symbol (e.g., AAPL, GOOGL, TSLA): ").strip().upper()
+        if ticker:
+            break
+        else:
+            print("Please enter a valid ticker symbol.")
+    
+    # Get period
+    print(f"\nValid periods: {', '.join(valid_periods)}")
+    while True:
+        period = input("Enter the period (default is '1y'): ").strip().lower()
+        if not period:  # If user presses enter without input, use default
+            period = '1y'
+            break
+        elif period in valid_periods:
+            break
+        else:
+            print(f"Invalid period. Please choose from: {', '.join(valid_periods)}")
+    
+    return ticker, period
+
+
+# Main entry point for the script
 if __name__ == "__main__":
-    run_pipeline(ticker_symbol='TSLA', period='5y')
+    
+    # Get user input for ticker and period
+    ticker_symbol, period = get_user_input()
+    run_pipeline(ticker_symbol='NFLX', period='5y')
+
+     # Run the pipeline with user-provided values
+    run_pipeline(ticker_symbol=ticker_symbol, period=period)
