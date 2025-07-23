@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Define output directory relative to the script's location
 # --- START CHANGE ---
-output_dir = "data"
+output_dir = "../data"
 # --- END CHANGE ---
 # Script starts here. Functions are defined below.
 def generate_filename(ticker_symbol: str, period: str) -> str:
