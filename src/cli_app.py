@@ -5,7 +5,9 @@ from datetime import datetime
 
 # Define output directory relative to the script's location
 # --- START CHANGE ---
-output_dir = "../data"
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Get current script location
+project_root = os.path.dirname(script_dir)              # Go up one level to project root
+output_dir = os.path.join(project_root, "data")         # Join with 'data' folder
 # --- END CHANGE ---
 # Script starts here. Functions are defined below.
 def generate_filename(ticker_symbol: str, period: str) -> str:
@@ -93,6 +95,8 @@ def load_data(df: pd.DataFrame, output_path: str):
         # Ensure the directory exists
         # This will now create the 'data' folder relative to your script
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        print(f"DEBUG: Created directory: {os.path.dirname(output_path)}")  # ← ADD THIS
+        print(f"DEBUG: Full output path: {os.path.abspath(output_path)}")   # ← ADD THIS
         df.to_csv(output_path, index=False)
         print("Data Loading completed.")
     except Exception as e:
@@ -160,7 +164,6 @@ if __name__ == "__main__":
     
     # Get user input for ticker and period
     ticker_symbol, period = get_user_input()
-    run_pipeline(ticker_symbol='NFLX', period='5y')
 
      # Run the pipeline with user-provided values
     run_pipeline(ticker_symbol=ticker_symbol, period=period)
