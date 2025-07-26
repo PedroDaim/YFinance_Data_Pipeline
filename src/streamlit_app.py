@@ -49,33 +49,34 @@ with col2:
 analyze_button = st.button(" Get Stock Data", type="primary")
 
 # Connect to pipeline when button is clicked
-if analyze_button and ticker:  # Only run if button clicked AND ticker is valid
-    with st.spinner(f"📈Fetching data for {ticker}..."):
-        # Use our existing pipeline functions
-        raw_data = extract_data(ticker, period)
-        
-        if not raw_data.empty:
-            clean_data = transform_data(raw_data)
-            st.success(f"💸Successfully loaded {len(clean_data)} days of data!")
+if analyze_button:
+    if not ticker or len(ticker) == 0:
+        st.error("❌ Please enter a valid ticker symbol before analyzing")
+    else:
+        with st.spinner(f"📈 Fetching data for {ticker}..."):
+            # Use our existing pipeline functions
+            raw_data = extract_data(ticker, period)
             
-            # Show basic info for now
-            close_col = [col for col in clean_data.columns if 'close' in col.lower()][0]
-            st.write(f"**Latest price:** ${clean_data[close_col].iloc[-1]:.2f}")
-            st.dataframe(clean_data.head())
+            if not raw_data.empty:
+                clean_data = transform_data(raw_data)
+                st.success(f"💸Successfully loaded {len(clean_data)} days of data!")
+                
+                # Show basic info for now
+                close_col = [col for col in clean_data.columns if 'close' in col.lower()][0]
+                st.write(f"**Latest price:** ${clean_data[close_col].iloc[-1]:.2f}")
+                st.dataframe(clean_data.head())
 
-            # Add download functionality
-            filename = generate_filename(ticker, period)
-            csv_data = clean_data.to_csv(index=False)
+                # Add download functionality
+                filename = generate_filename(ticker, period)
+                csv_data = clean_data.to_csv(index=False)
 
-            st.download_button(
-            label="💾 Download Full Dataset (CSV)",
-            data=csv_data,
-            file_name=filename,
-            mime="text/csv",
-            type="primary"
-)
-        else:
-            st.error(f"❌ No data found for ticker: {ticker}")
-
-
+                st.download_button(
+                label="💾 Download Full Dataset (CSV)",
+                data=csv_data,
+                file_name=filename,
+                mime="text/csv",
+                type="primary"
+    )
+            else:
+                st.error(f"❌ No data found for ticker: {ticker}")
 
