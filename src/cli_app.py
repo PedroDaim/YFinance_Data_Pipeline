@@ -1,4 +1,4 @@
-from data_pipeline import extract_data, transform_data, generate_filename
+from data_pipeline import extract_data, transform_data, generate_filename, load_data
 
 def run_pipeline(ticker_symbol: str, period: str = '1y'):
     """
