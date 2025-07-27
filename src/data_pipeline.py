@@ -109,3 +109,24 @@ def load_data(df: pd.DataFrame, output_path: str):
         print("Data Loading completed.")
     except Exception as e:
         print(f"Error during data loading: {e}")
+
+def run_pipeline(ticker_symbol: str, period: str = '1y'):
+    """
+    Runs the complete data pipeline for extracting, transforming, and loading financial data.
+
+    Args:
+        ticker_symbol (str): The stock ticker symbol (e.g., 'AAPL', 'GOOGL').
+        period (str): The period to download data for (e.g., '1y', '5y').
+    """
+    print(f"Starting data pipeline for {ticker_symbol}...")
+     # Generate unique filename for this run
+    output_path = generate_filename(ticker_symbol, period)
+
+    # Extract, transform, and load data
+    print("Extracting data...")
+    
+    df_raw = extract_data(ticker_symbol, period)
+    df_cleaned = transform_data(df_raw)
+    load_data(df_cleaned, output_path)
+    print("Data pipeline completed successfully.")
+    print(f"Data saved to: {output_path}")
