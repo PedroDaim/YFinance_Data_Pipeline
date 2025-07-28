@@ -1,4 +1,5 @@
 import streamlit as st
+import plotly.express as px
 from data_pipeline import extract_data, transform_data, generate_filename
 
 # Load external CSS
@@ -61,12 +62,26 @@ if analyze_button:
                 clean_data = transform_data(raw_data)
                 st.success(f"💸Successfully loaded {len(clean_data)} days of data!")
                 
-                # Show basic info for now
+                # Get column names
                 close_col = [col for col in clean_data.columns if 'close' in col.lower()][0]
-                st.write(f"**Latest price:** ${clean_data[close_col].iloc[-1]:.2f}")
+                date_col = [col for col in clean_data.columns if 'date' in col.lower()][0]
+                
+            
+                # Show latest price with metric display
+                latest_price = clean_data[close_col].iloc[-1]
+                st.markdown(f'<p style="color: #f8f9fa; font-size: 18px; font-weight: bold;">💰 Latest price: ${latest_price:.2f}</p>', unsafe_allow_html=True)
+                
+                # ADD CHART HERE - after price, before dataframe
+                st.subheader(f"📈 {ticker} Stock Price")
+                chart_data = clean_data.set_index(date_col)[close_col]
+                st.area_chart(chart_data, color="#1f77b4")
+                
+                st.write(f"**CSV Preview:**")
+
+                # Data preview
                 st.dataframe(clean_data.head())
 
-                # Add download functionality
+                # Download functionality
                 filename = generate_filename(ticker, period)
                 csv_data = clean_data.to_csv(index=False)
 
@@ -77,6 +92,3 @@ if analyze_button:
                 mime="text/csv",
                 type="primary"
     )
-            else:
-                st.error(f"❌ No data found for ticker: {ticker}")
-

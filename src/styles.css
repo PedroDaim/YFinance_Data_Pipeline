@@ -1,0 +1,81 @@
+/* Custom styling for Stock Data Analyzer */
+
+/* Dark background */
+.stApp {
+    background-color: #242423;
+}
+
+/* Main container */
+.main .block-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Main title and text (but exclude dropdown content) */
+h1, h2, h3, .stMarkdown, .stText, p, .element-container p, .stMarkdown p {
+    color: #f8f9fa !important;
+}
+
+/* Force all markdown content to be white */
+.element-container .stMarkdown * {
+    color: #f8f9fa !important;
+}
+
+/* Input labels only */
+.stSelectbox label, .stTextInput label {
+    color: #f8f9fa !important;
+}
+
+/* Alternative approach - target help text in tooltips */
+.stTooltip {
+    color: #f8f9fa !important;
+}
+
+/* Dropdown options - force dark text */
+.stSelectbox div[role="option"], .stSelectbox div[data-value] {
+    color: #242423 !important;
+    background-color: white !important;
+}
+
+/* Button styling */
+.stButton > button {
+    background-color:#db4a07; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.stButton > button:hover {
+    background-color: #f84200;
+    color: white;
+}
+
+/* Download button */
+.stDownloadButton > button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Keep dropdowns simple - white background, dark text */
+.stSelectbox > div > div {
+    background-color: white !important;
+    color: #242423 !important;
+}
+
+/* Input fields */
+.stTextInput > div > div > input {
+    background-color: white;
+    color: #242423;
+}
+
+/*  Hide/style the Streamlit header */
+header[data-testid="stHeader"] {
+    background-color: #242423 !important;
+    height: 0px;
+}
