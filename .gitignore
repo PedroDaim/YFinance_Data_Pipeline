@@ -1,9 +1,5 @@
 /docker-compose.yml
 /test.ipynb
-/.env
-*.csv
-*.ipynb_checkpoints/
-data/
 # Project specific
 data/
 .env
