@@ -10,7 +10,7 @@ def load_css(file_name):
 load_css('styles.css')
 
 # App title and description
-st.title(" Stock Data Pipeline")
+st.title(" YFinance Stock Pipeline")
 st.write("This application extracts, transforms, loads and downloads a csv file with stock data from Yahoo Finance.")
 
 # Create two columns for inputs
