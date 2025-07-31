@@ -3,8 +3,14 @@ import plotly.express as px
 from data_pipeline import extract_data, transform_data, generate_filename
 
 # Load external CSS
+# Load external CSS
 def load_css(file_name):
-    with open(file_name) as f:
+    import os
+    # Get the directory where this script is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    css_path = os.path.join(current_dir, file_name)
+    
+    with open(css_path) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 load_css('styles.css')
