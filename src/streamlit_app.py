@@ -22,7 +22,7 @@ with col1:
         "📈 Stock Ticker Symbol",
         value="",
         placeholder="Enter ticker (e.g., AAPL, GOOGL, TSLA, NVDA)",
-        help="💡 Popular: AAPL, GOOGL, MSFT, TSLA, NVDA, AMZN, SPY, QQQ"
+        #help="💡 Popular: AAPL, GOOGL, MSFT, TSLA, NVDA, AMZN, SPY, QQQ"
     )
     
     # Clean and validate input
@@ -71,7 +71,7 @@ if analyze_button:
                 latest_price = clean_data[close_col].iloc[-1]
                 st.markdown(f'<p style="color: #f8f9fa; font-size: 18px; font-weight: bold;">💰 Latest price: ${latest_price:.2f}</p>', unsafe_allow_html=True)
                 
-                # ADD CHART HERE - after price, before dataframe
+                #After price, before dataframe
                 st.subheader(f"📈 {ticker} Stock Price")
                 chart_data = clean_data.set_index(date_col)[close_col]
                 st.area_chart(chart_data, color="#1f77b4")
