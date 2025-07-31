@@ -42,7 +42,7 @@ with col1:
 with col2:
     period = st.selectbox(
         "Select Time Period", 
-        ["1y", "2y", "5y", "1mo", "3mo", "6mo", "YTD", "Max"],
+        [ "1d", "5d", "1mo", "6mo", "YTD", "1y", "5y", "Max"],
         index=0  # Default to 1y
     )
 
@@ -92,3 +92,15 @@ if analyze_button:
                 mime="text/csv",
                 type="primary"
     )
+st.markdown(
+    """
+    <hr style='margin: 40px 0 20px 0; border: 1px solid #dee2e6;'>
+    <div style='text-align: center; color: #6c757d; padding: 20px 0;'>
+        Made with ❤️ by Pedro Daim   |   
+        <a href='https://github.com/PedroDaim/YFinance_Data_Pipeline' style='color: #db4a07; text-decoration: none;'>
+            View on GitHub
+        </a>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
