@@ -1,5 +1,6 @@
 # 📈 YFinance Data Pipeline
 [**English**](https://github.com/PedroDaim/YFinance_Data_Pipeline/blob/main/README.md)| [**Português**](https://github.com/PedroDaim/YFinance_Data_Pipeline/blob/main/README_pt.md)
+
 A professional financial data extraction and analysis tool built with Python and Streamlit. Extract, transform, and download clean stock data from Yahoo Finance with a beautiful web interface.
 
 ## 🚀 [Live Demo](https://yfinancestockpipeline.streamlit.app/)
