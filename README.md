@@ -6,7 +6,7 @@ A professional financial data extraction and analysis tool built with Python and
 
 ## 🚀 [Live Demo](https://yfinancestockpipeline.streamlit.app/)
 
-![App Screenshot](https://github.com/user-attachments/assets/8b0f8558-43c3-490f-9479-13927d4a4e41)<img width="1920" height="735" alt="Image" src="https://github.com/user-attachments/assets/8b0f8558-43c3-490f-9479-13927d4a4e41" />
+![App Screenshot](https://github.com/user-attachments/assets/8b0f8558-43c3-490f-9479-13927d4a4e41)
 
 ## ✨ Features
 
