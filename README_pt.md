@@ -1,6 +1,6 @@
 # 📈 Pipeline de Dados de Ações
 
-[**English](https://www.notion.so/datadaim/README.md) | [Português](https://www.notion.so/datadaim/README_pt.md)**
+[**English] | [Português]**
 
 Uma ferramenta profissional de extração e análise de dados financeiros construída com Python e Streamlit. Extraia, transforme e baixe dados limpos de ações do Yahoo Finance com uma interface web elegante.
 
