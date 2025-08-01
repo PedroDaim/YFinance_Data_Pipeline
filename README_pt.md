@@ -1,5 +1,6 @@
-📈 Pipeline de Dados de Ações
-English | Português
+# 📈 Pipeline de Dados de Ações
+
+[**English](https://github.com/PedroDaim/YFinance_Data_Pipeline/edit/main/README.md) | [Português](https://github.com/PedroDaim/YFinance_Data_Pipeline/edit/main/README_pt.md)**
 
 Uma ferramenta profissional de extração e análise de dados financeiros construída com Python e Streamlit. Extraia, transforme e baixe dados limpos de ações do Yahoo Finance com uma interface web elegante.
 
