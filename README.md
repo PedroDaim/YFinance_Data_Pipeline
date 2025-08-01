@@ -135,7 +135,7 @@ streamlit run src/streamlit_app.py
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -152,6 +152,3 @@ Project Link: https://github.com/PedroDaim/YFinance_Data_Pipeline
 ---
 
 ⭐ **Star this repo if you found it helpful!**
-
-License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
