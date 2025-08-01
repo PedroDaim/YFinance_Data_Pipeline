@@ -154,4 +154,4 @@ Project Link: https://github.com/PedroDaim/YFinance_Data_Pipeline
 ⭐ **Star this repo if you found it helpful!**
 
 License
-This project is open-sourced under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
