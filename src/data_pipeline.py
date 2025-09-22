@@ -39,7 +39,7 @@ def extract_data(ticker_symbol: str, period: str = '1y') -> pd.DataFrame:
     """
     print(f"Attempting to extract data for {ticker_symbol} for the period {period}...")
     try:
-        df = yf.download(ticker_symbol, period=period)
+        df = yf.download(ticker_symbol, period=period, auto_adjust=False)
         time.sleep(3) # Wait for 3 seconds after each download
         if df.empty:
             print(f"No data extracted for {ticker_symbol}. Check the ticker symbol or period.")
